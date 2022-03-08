@@ -131,3 +131,25 @@ p teams #["hanshin", "yakult", "softBank", "kyojin", "rakuten"]
 
 p teams.size #5 / 要素の数を示してくれる
 p teams.sort #アルファベット順に並び替えるメソッド
+
+#ハッシュ（hash）オブジェクト
+# key / value 
+#例えば　　阪神が ２点で ソフトバンクが １点だった場合、チームとスコアをペアにして管理するために使う
+
+#ハッシュの作り方
+#scores = {"hanshin" => 2, "softbank" => 1}
+#scores = {:hanshin => 2, :softbank => 1} #シンボル(symbol)
+#:(コロン)から始まる識別子(しきべつし)のようなオブジェクトで、文字列を使うより動作が高速で Rubyではよく使われる
+scores = {hanshin: 2, softbank: 1} #シンボルの簡単な書き方
+
+#ハッシュのそれぞれの要素へのアクセス
+p scores[:hanshin] #scoresにキーである :hanshin を与えてあげると、その値である 2 を引っ張ってくることができます。
+
+#ハッシュの値（あたい）の書き換え
+scores[:hanshin] = 3;
+p scores #{:hanshin=>3, :softbank=>1}
+
+p scores.size #要素の数を引っ張ってくる
+p scores.keys #キーの一覧を引っ張ってくる / [:hanshin, :softbank]
+p scores.values #値の一覧だけ引っ張ってくる / [3, 1]
+p scores.has_key?(:hanshin) #true / 特定のキーがあるかどうか調べる
