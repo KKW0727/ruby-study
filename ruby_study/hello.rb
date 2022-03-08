@@ -87,3 +87,47 @@ puts "hello #{name}"
 
 puts "hello" + " world" #hello world
 puts "hello" * 10 #hellohellohellohellohellohellohellohellohellohello
+
+#!(ビックリマーク)
+# upcase / upcaseは文字列を大文字にしたものを返すだけ
+# upcase! 破壊的なメソッド / upcase! は文字列を大文字にしたものを返しつつ、元の文字列も大文字に書き換える
+
+name = "aimyon"
+puts name.upcase #AIMYON
+puts name #aimyon
+puts name.upcase! #AIMYON
+puts name #AIMYON
+
+team = "HANSHIN"
+puts team.downcase #hanshin
+puts team.reverse #NIHSNAH
+
+#?(はてなマーク) / 真偽値(しんぎち)を返すメソッド（true, false）
+puts name.empty? # false / 空(から)かどうかを調べるメソッド
+puts name.include?("A") #true / 特定の文字が含まれているかどうか調べるメソッド
+
+#配列
+
+#作り方
+teams = ["hanshin", "kyojin", "orix"]
+
+#要素へのアクセス
+p teams[0] #"hanshin" / 大括弧(だいかっこ)の中の数値を添字（そえじ）と呼ぶ
+p teams[0..2] #["hanshin", "kyojin", "orix"] / 0 から 2 まで
+p teams[0...2] #["hanshin", "kyojin"] / 0 から 2 の直前まで
+p teams[4] #nil / 範囲外の数値を指定するとnilというオブジェクトが返ってくるが、これは何もないという意味の特殊なオブジェクト
+
+#配列の書き換え
+teams[1] = "chibalotte"
+p teams #["hanshin", "chibalotte", "orix"]
+teams[1..2] = ["yakult", "softBank"]
+p teams #["hanshin", "yakult", "softBank"]
+
+#配列の追加
+teams.push("kyojin")
+p teams #["hanshin", "yakult", "softBank", "kyojin"]
+teams << "rakuten" #pushの簡単な書き方
+p teams #["hanshin", "yakult", "softBank", "kyojin", "rakuten"]
+
+p teams.size #5 / 要素の数を示してくれる
+p teams.sort #アルファベット順に並び替えるメソッド
