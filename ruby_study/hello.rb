@@ -32,4 +32,17 @@ Rubyでは警告は出してくれるけど、そこで処理が止まるわけ�
 こういう警告を無視せずにきちんと対処するようにしておこう
 =end
 
+#Objects
+#Rubyでは全ての値がオブジェクトになっている
+#length, reverse, round, floor などを　メソッドと呼ぶ
+#　１０ や "hello world" などの実際の値のことはインスタンスと呼ぶ
+#オブジェクトの種類によって Stringクラス, Float クラスと呼ぶ　/ これ以外でもたくさんのクラスが用意されてる。
+ msg2 = "hello ruby".length
+msg3 = "hello ruby2".reverse
+puts msg2 #10 　/    .length をつければ文字数を返してくれる
+puts msg3 #2ybur olleh　 /  .reverse という命令をつけてあげると、この文字列を逆順にした文字列を返してくれる。
 
+number = 15.5;
+puts number.round #16 / round という命令をつけてあげると四捨五入（ししゃごにゅう）して 1 を返してくれる
+
+puts number.floor #15　/ .floor という命令をつけてあげると小数点（しょうすうてん）以下を切り捨ててくれる
