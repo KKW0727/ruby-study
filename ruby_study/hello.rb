@@ -68,3 +68,22 @@ p 2/5r + 3/4r #Rationalの短い書き方
 p 50.7.round #四捨五入 / 51
 p 50.7.floor #小数点以下を切り捨てる / 50
 p 50.3.ceil #小数点以下を切り上げの場合 /51
+
+#文字列に関するオブジェクト
+#文字列はシングルクォーテーション,ダブルクォーテーションで囲ってあげれば OK
+#でも、シングルクォーテーションの場合、特殊文字が使えない、式展開ができない、という特徴がある
+
+puts "hello\nworld\nruby" #hello
+                          #world
+                          #ruby
+puts 'hello\n world\n ruby' #hello\n world\n ruby
+
+# #{} #(バウンド記号)　{}(波括弧（なみかっこ）)
+puts "price #{1000 * 3}" #price 3000
+puts 'price #{1000 * 5}' #price #{1000 * 5}
+
+name = "aimyon"
+puts "hello #{name}"
+
+puts "hello" + " world" #hello world
+puts "hello" * 10 #hellohellohellohellohellohellohellohellohellohello
