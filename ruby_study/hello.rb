@@ -358,13 +358,49 @@ puts "点数を入力してください"
 
 #break / ループを抜けるため
 #next / ループを 1 回スキップするため
- 10.times do |i|
-    if i == 7 then
-        #break # 0 1 2 3 4 5 6
-        next # 0 1 2 3 4 5 6 8 9
-    end
-    p i
+#  10.times do |i|
+#     if i == 7 then
+#         #break # 0 1 2 3 4 5 6
+#         next # 0 1 2 3 4 5 6 8 9
+#     end
+#     p i
+#  end
+
+#メソッド
+#作り方 / def というキーワードから始めてメソッド名を書いてあげれば OK
+# def printName(name) #引数(ひきすう)
+#     puts name
+# end
+
+#引数にデフォルト値(デフォルトち)を与えることもできる
+#名前を渡さなかったときにデフォルト値のmasakiを名前にしてくれる
+#  def printName(name = "masaki") #引数(ひきすう)
+#      puts name
+#  end
+
+#値を返したい場合
+ def printName(name = "masaki")
+     return "hi #{name}"
  end
 
+ #p printName # "hi masaki"
 
-    
+#メソットを呼び出す
+#printName("aimyon")
+#printName "aimyon"
+#意味が曖昧にならない場合は 上のように丸括弧（まるかっこう）は省略することができる
+
+
+=begin
+引数（ひきすう）とパラメータの違い
+引数（ひきすう） == アーギュメントは、関数に渡した実際の値のこと
+arg = "aimyon"
+printName(arg)
+argは引数
+
+パラメータは、関数に受け渡されるもの
+def printName(name)
+    puts "kang"
+end
+nameがパラメータ
+=end
