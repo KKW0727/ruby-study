@@ -313,8 +313,40 @@ puts "点数を入力してください"
 
 10.times { |i| puts "#{i} hello" } # 1 行で書く場合
 
+#for
+# for i in 15..20 do #doは省略可能
+#  p i  # 15 16 17 18 19
+# end
 
+#for 配列
+# for team in ["hanshin", "kyojin"]
+#     p team # "hanshin" "kyojin"
+# end
 
+# #for ハッシュ
+# for name, age in {masaki: 25, aimyon: 29} do
+#     # p age # 25 29
+#     puts "#{name}: #{age}" #masaki: 25 aimyon: 29
+# end
+
+#each
+#内部的には each というメソッドを使う
+#集合的なオブジェクトのメソッドとして動作する
+
+# (15..20).each do |i|
+#     p i
+# end
+
+# ["hanshin", "kyojin"].each do |team|
+#     p team
+# end
+
+# {masaki: 25, aimyon: 29}.each do |name, age|
+#     p "#{name}: #{age}"
+# end
+
+# # 1行の場合
+# {masaki: 25, aimyon:29}.each { |name,age| p "#{name}: #{age}"}
 
 
     
