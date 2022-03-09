@@ -261,13 +261,42 @@ p sprintf("id: %05d, rate: %10.2f\n", 355, 3.284)
 ## &&(AND) ||(OR) !(NOT)
 puts "点数を入力してください"
 # gets / ユーザーから入力を受け付けるメソッド　
-score = gets.to_i #getsで受け取るのは文字列になるからそれを数値に変換する必要がある
- if score > 90 then
-     puts "よく頑張ったな!"
- elsif score > 80 then
-     puts "あと少しだね"
- else 
-     puts "もっと頑張りなさい!"
- end
+#score = gets.to_i #getsで受け取るのは文字列になるからそれを数値に変換する必要がある
+#  if score > 90 then
+#      puts "よく頑張ったな!"
+#  elsif score > 80 then
+#      puts "あと少しだね"
+#  else 
+#      puts "もっと頑張りなさい!"
+#  end
 
 #puts "よく頑張ったな!" if score > 95 #単純な条件分岐の場合使える
+
+#case
+
+#signal = gets.chomp
+
+# case signal
+# when "red"
+#     puts "stop!"
+# when "green", "blue"
+#     puts "go!"
+# when "yellow"
+#     puts "caution!"
+# else
+#     puts "wrong signal"
+# end
+
+#入力した値のところで改行される
+# name = gets
+# puts "こんにちは" + name + "さん" #こんにちはaimyon
+#                                 #さん
+
+# #gets.chomp / 改行を解除できる
+# name = gets.chomp
+# puts "こんにちは" + name + "さん" #こんにちはaimyonさん
+
+
+
+
+    
