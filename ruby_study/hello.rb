@@ -37,7 +37,7 @@ Rubyでは警告は出してくれるけど、そこで処理が止まるわけ�
 #length, reverse, round, floor などを　メソッドと呼ぶ
 #　１０ や "hello world" などの実際の値のことはインスタンスと呼ぶ
 #オブジェクトの種類によって Stringクラス, Float クラスと呼ぶ　/ これ以外でもたくさんのクラスが用意されてる。
- msg2 = "hello ruby".length
+msg2 = "hello ruby".length
 msg3 = "hello ruby2".reverse
 puts msg2 #10 　/    .length をつければ文字数を返してくれる
 puts msg3 #2ybur olleh　 /  .reverse という命令をつけてあげると、この文字列を逆順にした文字列を返してくれる。
@@ -50,7 +50,7 @@ puts number.floor #15　/ .floor という命令をつけてあげると小数�
 #数値に関するオブジェクト
 p 4.8.class #オブジェクトがどのクラスに属しているか確認
 p 4.8.methods #どのようなメソッドを持っているかを調べる
-#足し算は +、引き算は -、掛け算は *（アスタリスク）、割り算は /(スラシー)
+#足し算は +、引き算は -、掛け算は *（アスタリスク）、割り算は /(スラッシュ)
 #余り（あまり）については　％（パーセント）、　べき乗（べきじょう）は **（アスタリスクアスタリスク）
 
 
@@ -153,3 +153,40 @@ p scores.size #要素の数を引っ張ってくる
 p scores.keys #キーの一覧を引っ張ってくる / [:hanshin, :softbank]
 p scores.values #値の一覧だけ引っ張ってくる / [3, 1]
 p scores.has_key?(:hanshin) #true / 特定のキーがあるかどうか調べる
+
+
+#変換
+x = 5
+y = "2"
+
+p x + y.to_i #7 整数(せいすう)　
+p x + y.to_f #7.0　浮動小数点数(ふどうしょうすうてんすう)
+p x.to_s + y #"52"　#String
+
+age = {masaki: 29, aimyon: 28}
+
+p age.to_a #[[:masaki, 29], [:aimyon, 28]] #配列に表現
+p age.to_h #{:masaki=>29, :aimyon=>28} #ハッシュに戻す
+
+# %
+puts %Q(hello) # == puts "hello"
+puts %(hello) #上と同じ意味　/ Qは省略可能
+
+puts %q(hello) # == puts 'hello' 
+
+puts "he\"llo" #he"llo
+puts %(hel"lo) #hel"lo
+=begin
+ "" の中で " を使いたかったり、'' の中で ' を使いたい場合、これらは区切り文字ではないよという意味で \（バックスラッシュ） を付けてあげる必要がある
+でも　%の記法の場合はそうする必要はなくて単に " だとか ' をそのまま書ければOK
+=end
+
+p ["red", "blue"]
+p ['red', 'blue']
+
+#配列の他の書き方
+# " や ' をたくさん書くのが面倒な場合使えばOK
+p %W(red blue)
+p %w(red blue) 
+
+
