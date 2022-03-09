@@ -348,5 +348,23 @@ puts "点数を入力してください"
 # # 1行の場合
 # {masaki: 25, aimyon:29}.each { |name,age| p "#{name}: #{age}"}
 
+#loop
+#永遠に処理を繰り返す
+# i = 0
+# loop do
+#  p i
+#  i += 1
+# end
+
+#break / ループを抜けるため
+#next / ループを 1 回スキップするため
+ 10.times do |i|
+    if i == 7 then
+        #break # 0 1 2 3 4 5 6
+        next # 0 1 2 3 4 5 6 8 9
+    end
+    p i
+ end
+
 
     
