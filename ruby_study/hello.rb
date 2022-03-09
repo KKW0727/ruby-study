@@ -297,6 +297,24 @@ puts "点数を入力してください"
 # puts "こんにちは" + name + "さん" #こんにちはaimyonさん
 
 
+#while
+# i = 0
+
+# while i < 10 do
+#     puts "#{i} hello"
+#     #i = i + 1
+#     i += 1
+# end
+
+#times / 回数が決まっている場合に便利
+# 10.times do |i|
+#     puts "#{i} hello"
+# end
+
+10.times { |i| puts "#{i} hello" } # 1 行で書く場合
+
+
+
 
 
     
