@@ -407,14 +407,29 @@ nameがパラメータ
 #クラス名は必ず大文字から始めないといけない
 
 class User
+
+    #変数の値にアクセスしたい場合(インスタンスメソッド内では使うことができるけど、外部からアクセスすることはできない。)
+    #例えば書き換えてみたり、もしくは単に表示してみるなどの処理
+    attr_accessor :name # setter: name=(value), getter: name
+    #インスタンス変数の名前をシンボルで渡してあげると自動的に name をセットするための name= というメソッド(setter)と、
+    #name にアクセスするための name というメソッド(getter)を作ってくれる
+
+    #getterだけ定義したい場合,attr_readerを使う
+    # attr_reader :name
+
     #new が呼ばれたときに 特殊な initialize というメソッド呼ばれる
     def initialize(name)
         @name = name #インスタンス変数 / インスタンス変数名の前に @(アット（マーク)) をつけるルールになっている
     end
     
     def sayHi
+    #self / 受け取っているインスタンス自身を指す（ここでは　aimyonやmasakiを指す）
+    
+
     #メソッド内で定義した変数はその外からアクセスできないけど、このインスタンス変数は特別で、このインスタンスの中であればどこででも使える。
         puts "hi! i am #{@name}"
+        puts "hi! i am #{self.name}" ##self.name -> @name / 結果としてgetterを呼ぶからンスタンス変数が取得できて name が返ってくる
+        puts "hi! i am #{name}" # self は意味が曖昧にならない限り省略できる
     end
 end
 
@@ -426,5 +441,7 @@ aimyon.sayHi #hi! i am aimyon
 masaki = User.new("masaki")
 masaki.sayHi #hi! i am masaki / インスタンスごとに値が保持(ほじ)される
 
-
-
+masaki.name = "suda masaki" # setterで名前を変更
+p masaki.name # "suda masaki" #getterでmasakiというインスタンスの名前を表示
+masaki.sayHi # hi! i am suda masaki / メソッドを受け取っているオブジェクトのことを「受け取っているもの」という意味で「レシーバー」と呼ぶ
+ 
