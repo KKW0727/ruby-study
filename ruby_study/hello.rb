@@ -408,6 +408,10 @@ nameがパラメータ
 
 class User
 
+    @@count = 0 #クラス変数 / 0(ゼロ)で初期化（しょきか）。
+
+    VERSION = 1.8 #クラスで定数を定義　 / 1 文字目が大文字で慣習的に全て大文字にすることが推奨（すいしょう）されている
+
     #変数の値にアクセスしたい場合(インスタンスメソッド内では使うことができるけど、外部からアクセスすることはできない。)
     #例えば書き換えてみたり、もしくは単に表示してみるなどの処理
     attr_accessor :name # setter: name=(value), getter: name
@@ -419,6 +423,7 @@ class User
 
     #new が呼ばれたときに 特殊な initialize というメソッド呼ばれる
     def initialize(name)
+        @@count += 1
         @name = name #インスタンス変数 / インスタンス変数名の前に @(アット（マーク)) をつけるルールになっている
     end
     
@@ -431,6 +436,11 @@ class User
         puts "hi! i am #{self.name}" ##self.name -> @name / 結果としてgetterを呼ぶからンスタンス変数が取得できて name が返ってくる
         puts "hi! i am #{name}" # self は意味が曖昧にならない限り省略できる
     end
+
+    #クラスメソッド
+    def self.info
+        puts "#{VERSION}: User Class, #{@@count} instances."
+      end
 end
 
 #インスタンスを作ってaimyonという変数に割り当てる
@@ -445,3 +455,9 @@ masaki.name = "suda masaki" # setterで名前を変更
 p masaki.name # "suda masaki" #getterでmasakiというインスタンスの名前を表示
 masaki.sayHi # hi! i am suda masaki / メソッドを受け取っているオブジェクトのことを「受け取っているもの」という意味で「レシーバー」と呼ぶ
  
+
+#クラスメソッドはクラスから直接呼び出すことができる
+User.info
+
+#クラスでの定数をクラスの外からアクセスする方法
+p  User::VERSION
