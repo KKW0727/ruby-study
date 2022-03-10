@@ -380,16 +380,14 @@ puts "点数を入力してください"
 
 #値を返したい場合
  def printName(name = "masaki")
-     return "hi #{name}"
+     return "hi #{name}" #返り値(かえりち)、戻り値(もどりち)、return値（リターンち）
  end
-
  #p printName # "hi masaki"
 
 #メソットを呼び出す
 #printName("aimyon")
 #printName "aimyon"
 #意味が曖昧にならない場合は 上のように丸括弧（まるかっこう）は省略することができる
-
 
 =begin
 引数（ひきすう）とパラメータの違い
@@ -404,3 +402,29 @@ def printName(name)
 end
 nameがパラメータ
 =end
+
+#クラス
+#クラス名は必ず大文字から始めないといけない
+
+class User
+    #new が呼ばれたときに 特殊な initialize というメソッド呼ばれる
+    def initialize(name)
+        @name = name #インスタンス変数 / インスタンス変数名の前に @(アット（マーク)) をつけるルールになっている
+    end
+    
+    def sayHi
+    #メソッド内で定義した変数はその外からアクセスできないけど、このインスタンス変数は特別で、このインスタンスの中であればどこででも使える。
+        puts "hi! i am #{@name}"
+    end
+end
+
+#インスタンスを作ってaimyonという変数に割り当てる
+#aimyon = User.new
+aimyon =  User.new("aimyon") #インスタンスを作るときに名前を渡してあげる
+aimyon.sayHi #hi! i am aimyon
+
+masaki = User.new("masaki")
+masaki.sayHi #hi! i am masaki / インスタンスごとに値が保持(ほじ)される
+
+
+
