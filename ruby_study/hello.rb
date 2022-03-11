@@ -367,7 +367,7 @@ puts "点数を入力してください"
 #  end
 
 #メソッド
-#作り方 / def というキーワードから始めてメソッド名を書いてあげれば OK
+#作り方 / def(define((定義する)) というキーワードから始めてメソッド名を書いてあげれば OK
 # def printName(name) #引数(ひきすう)
 #     puts name
 # end
@@ -480,3 +480,54 @@ end
 aimoyn = AdminUser.new("aimyon")
 aimoyn.sayHi #オーバーライドをしないと親クラスのsayHiが呼ばれる　、　オーバーライドすると子クラスのsayHiが優先されて呼ばれる
 aimoyn.sayHello
+
+#アクセス権(アクセスけん)
+#public / #通常のメソッドはpulbicがデフォルトになっている
+#例外があって, new したときに呼ばれる initialize メソッドと、クラスの外に書いたメソッドは自動的に private になるから、覚えておこう。
+#protected
+#private / レシーバーは指定できない
+# ***** 
+#Ruby の private指定は他の言語のオブジェクト指向プログラミングと動作が異なっていて、Sub Class から呼び出せたり、オーバーライドすることができたりするので、十分注意して使うようにしましょう。
+
+class Person
+    def walk
+        puts  "walk in the park"
+        eat # privateのメソッドをクラスの中からは呼び出せる
+        #self.eat #意味的には self.eat だけど、bprivateではレシーバーを指定できないから　必ず selfは省略しよう。
+    end
+
+    private
+    def 
+         eat
+         puts "eat ramen"
+    end
+end
+
+
+class Student < Person
+    def 
+        studyKorean
+        puts "study Korean"
+        eat #walk と eat を両方継承しているので、実は eat を Student でつくるメソッドからも呼び出せる
+        #privateの　eatメソッドを上書きしないと親クラスのeat ramenが　表示される、上書きすると　親クラスのeat　sushiが　表示される
+   end
+
+   def 
+        studyEnglish
+        puts "study English"    
+    end
+    
+    #rubyでは　privateの同名のメソッドを実は上書きすることもできる
+    def eat
+        puts "eat sushi"
+    end
+
+end
+
+#Person.new.eat # NG / レシーバーを指定できないから、例えば Userのインスタンスから呼び出すことはできない
+ #Person.new.walk # walk in the park,  eat ramen
+
+ Student.new.studyKorean #study Korean ,  （(上書きしない時)eat ramen、　(上書きした時)eat sushi）
+Student.new.eat #eat sushi
+
+
