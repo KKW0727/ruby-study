@@ -461,3 +461,22 @@ User.info
 
 #クラスでの定数をクラスの外からアクセスする方法
 p  User::VERSION
+
+#クラスの継承（けいしょう）
+#Userクラスは　親クラス(親クラス）　もしくは　Superクラスと呼ぶ
+#AdminUserクラスは　子クラス（こクラス）　もしくは　Subクラスと呼ぶ
+class AdminUser < User
+
+    def sayHello
+        puts "Hello from #{name}"
+    end  
+
+    #子クラスで同名（どうめい）のメソッドを上書き(うわがき)することもできる -> オーバーライドと言う
+    def sayHi
+        puts "hi from admin!"
+    end
+end
+
+aimoyn = AdminUser.new("aimyon")
+aimoyn.sayHi #オーバーライドをしないと親クラスのsayHiが呼ばれる　、　オーバーライドすると子クラスのsayHiが優先されて呼ばれる
+aimoyn.sayHello
