@@ -527,7 +527,28 @@ end
 #Person.new.eat # NG / レシーバーを指定できないから、例えば Userのインスタンスから呼び出すことはできない
  #Person.new.walk # walk in the park,  eat ramen
 
- Student.new.studyKorean #study Korean ,  （(上書きしない時)eat ramen、　(上書きした時)eat sushi）
+Student.new.studyKorean #study Korean ,  （(上書きしない時)eat ramen、　(上書きした時)eat sushi）
 Student.new.eat #eat sushi
 
+#module(モジュール)
+# moduleはクラスのようにメソッドや定数をまとめられるもの　/ インスタンスを作ったり継承することはできない
+# メソッド名が他の人が作ったメソッド名や、ライブラリのメソッド名などと衝突する場合があるからそういう時にモジュールを使って自分だけの名前空間を作ればOK
+# メソッドや定数などをざっとまとめてグループ化したいだけのときに便利
+
+module Movie
+
+    VERSION = 1.8
+
+    def self.encode
+        puts "encoding..."
+    end
+
+    def self.export
+        puts "exporting..."
+    end
+end
+
+Movie.encode
+Movie.export
+p Movie::VERSION #moduleでの変数もクラス定数と同じように使うことができる
 
