@@ -552,3 +552,25 @@ Movie.encode
 Movie.export
 p Movie::VERSION #moduleでの変数もクラス定数と同じように使うことができる
 
+
+#ミックイン
+#継承関係にない複数のクラスに共通の機能を提供する場合に便利
+ 
+module Debug
+
+    def info # selfをつけずに単にインスタンスメソッドにしてあげると、それを他のクラスのインスタンスメソッドとしてはめ込むことができる
+        puts "#{self.class} debug info..."
+    end
+end 
+
+class Player
+    include Debug
+end
+
+class Monster
+    include Debug
+end
+
+Player.new.info
+Monster.new.info
+
