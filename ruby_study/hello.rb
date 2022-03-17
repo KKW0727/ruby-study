@@ -574,3 +574,33 @@ end
 Player.new.info
 Monster.new.info
 
+
+#例外
+#x = 100 / 0
+#p x #ZeroDivisionError
+
+
+begin
+    p 100 / 0
+rescue => ex #例外が発生した時に例外情報をexというオブジェクトに入れてくれる
+    p ex.message #"divided by 0"
+    p ex.class # zeroDivisionError(rubyの例外に関連するclass名)
+    puts "stopped" 
+ensure #例外が発生しようがしまいが、最後に絶対実行したい処理は ensure に続けて書ければOK
+    puts "必ず表示!"
+end
+
+#自分で例外クラスをつくってそれをキャッチするもできる
+class MyError < StandardError; end #  StandardErrorは Rubyの標準的な例外クラス
+
+
+#  x = gets.to_i
+#  begin  
+#      if x == 7
+#      raise MyError  #意図的に例外（エラー）を発生させる場合　 raiseというキーワードを使う   
+#     end               #プログラムの作りは正しいけど、何か実行時の問題をif文などのプログラムで見つけたら、プログラマーが発生させることができる
+#                     #例えばたまたま数字を0で割ってしまった時とか、そのままだとプログラムはエラーを出力して停止してしまうが、例外処理を正しくプログラミングすると、異常終了することなくエラーを検知（けんち）してプログラムの続きができるようになる   
+#     p 100 / x
+#     rescue MyError # MyErrorをキャッチする
+#         puts "not 7"
+# end
